@@ -5,22 +5,29 @@
     <title>Turkic Converter</title>
 </head>
 
-<body style="background-color: #1e1e1e;">
-    <h1 style="color:beige">Turkic Converter</h1>
-    <textarea rows="20" cols="50" id="text_to_convert" onkeyup = "auto_convert()"></textarea>
-    <br/>
-    <input type="checkbox" id="auto_convert" value="auto convert" checked>
-    <label style="color:beige" for="auto_convert">auto convert</label><br>
-    <p>
-    <p style="color:beige; unicode-bidi:bidi-override; direction: RTL; text-align: left; white-space: pre-wrap;" id="converted_text"></p>
-    </p>
-    <br/>
-    <button onclick="convert_to_script()">convert</button>
-    <button onclick="diphthongs()">diphthongs</button>
+<body style="background-color: #1e1e1e; color:beige;">
+    <h1>Turkic Converter</h1>
+    <div>
+        <a style="color:beige; color:cornflowerblue; font-weight: bold; font-size:x-large" href="practice.html">practice</a>
+        <br/>
+        <br/>
+    </div>
+    <div id="convert_div">
+        <textarea rows="20" cols="50" id="text_to_convert" onkeyup = "auto_convert()"></textarea>
+        <br/>
+        <input type="checkbox" id="auto_convert" value="auto convert" checked>
+        <label for="auto_convert">auto convert</label><br>
+        <p>
+        <p style="unicode-bidi:bidi-override; direction: RTL; text-align: left; white-space: pre-wrap;" id="converted_text"></p>
+        </p>
+        <br/>
+        <button onclick="convert_to_script()">convert</button>
+        <button onclick="diphthongs()">diphthongs</button>
+    </div>
     <script>
-        hard_vowels = "аоуұы"
-        soft_vowels_letters = "еәіөүиь"
-        dual_consonants = "бдгғчжнрстлқкш"
+        hard_vowels = "аоуұы";
+        soft_vowels_letters = "еәіөүиь";
+        dual_consonants = "бдгғчжнрстлқкш";
 
         diphthongs_dict = {
             'ок' : "𐰸",
@@ -132,8 +139,26 @@
         function auto_convert()
         {
             if(auto_convert_checkbox.checked)
-                convert_to_script()
+                convert_to_script();
         };
+        
+        function convert_word_to_script(word_to_convert)
+        {
+            converted_word = "";
+            for(var i = 0; i < word_to_convert.length; i++)
+            {
+                let char_to_convert = word_to_convert[i].toLowerCase();
+                final_char = "";
+                    if(dual_consonants.includes(char_to_convert))
+                        final_char = get_dual(char_to_convert, word_to_convert[i-1], word_to_convert[i+1]);
+                    else if(char_to_convert in to_turkic_dict)
+                        final_char = to_turkic_dict[char_to_convert];
+                    else
+                        final_char = char_to_convert;
+                converted_word += final_char;
+            }
+            return converted_word;
+        }
 
         function convert_to_script()
         {
@@ -156,8 +181,3 @@
     </script>
 </body>
 </html>
-
-
-<!-- onkeypress = "this.onchange();"
-    onpaste    = "this.onchange();"
-    oninput    = "this.onchange();" -->
