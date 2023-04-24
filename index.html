@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <title>Turkic Converter</title>
 </head>
 
 <body style="background-color: #1e1e1e;">
     <h1 style="color:beige">Turkic Converter</h1>
-    <textarea id="text_to_convert" onkeyup = "convert_to_script()"></textarea>
+    <textarea rows="20" cols="50" id="text_to_convert" onkeyup = "auto_convert()"></textarea>
+    <br/>
+    <input type="checkbox" id="auto_convert" value="auto convert" checked>
+    <label style="color:beige" for="auto_convert">auto convert</label><br>
     <p>
-    <label style="color:beige" id="converted_text"></label>
+    <p style="color:beige; unicode-bidi:bidi-override; direction: RTL; text-align: left; white-space: pre-wrap;" id="converted_text"></p>
     </p>
     <br/>
     <button onclick="convert_to_script()">convert</button>
@@ -66,6 +70,8 @@
             'ц' : "𐰳",
             'х' : "𐰴",
             'ф' : "𐰯",
+            'ұ' : "𐰆",
+            'я' : "𐰄𐰀",
             'th' : "𐰕",
         }
 
@@ -102,7 +108,7 @@
             'к' : "𐰚",
             'ш' : "𐱁",
         }
-        // Қққққазақ
+        
         function get_dual(letter, prev_letter, next_letter)
         {
             is_soft = false;
@@ -120,6 +126,14 @@
 
             return rune;
         }
+        
+        var auto_convert_checkbox = document.getElementById("auto_convert");
+
+        function auto_convert()
+        {
+            if(auto_convert_checkbox.checked)
+                convert_to_script()
+        };
 
         function convert_to_script()
         {
@@ -136,7 +150,7 @@
                         final_char = to_turkic_dict[char_to_convert];
                     else
                         final_char = char_to_convert;
-                converted_text_element.insertAdjacentHTML("beforeend", final_char);
+                converted_text_element.innerHTML += final_char;
             }
         }
     </script>
