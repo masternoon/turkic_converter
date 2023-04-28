@@ -31,9 +31,8 @@
         <br/>
         <input type="text" style="font-size:x-large;" id="answer_input"/>
         <div style="min-height: 50px;">
-            <label id="correct_checkmark" style="font-size:x-large" hidden>✅😀</label><label id="wrong_checkmark" style="font-size:x-large" hidden>❌😭</label>
+            <label id="correct_checkmark" style="font-size:x-large">✅😀</label><label id="wrong_checkmark" style="font-size:x-large">❌😭</label>
         </div>
-        <br/>
         <button class="btn btn-dark rune_button" style="margin-right: 20px" onclick="check_answer()">submit</button>
         <button class="btn btn-dark rune_button" onclick="next_word()">next</button>
         <br/>
@@ -99,7 +98,7 @@
         <br/>
         <br/>
         <div id="cheat_sheet" class="row justify-content-center collapse">
-            <table class="table" style="color:white; width: 200px">
+            <table class="table" style="color:white; width: 150px">
                 <thead>
                     <tr>
                       <th scope="col">Hard</th>
@@ -170,7 +169,7 @@
                     </tr>
                   </tbody>
             </table>
-            <table class="table" style="color:white; width: 200px; margin-left: 10px">
+            <table class="table" style="color:white; width: 100px; margin-left: 20px">
                 <thead>
                     <tr>
                       <th scope="col">Turkic</th>
@@ -180,7 +179,7 @@
                 <tbody>
                     <tr>
                         <td>𐰀</td>
-                        <td>а/ә</td>
+                        <td>а</td>
                     </tr>
                     <tr>
                         <td>𐰂</td>
@@ -188,7 +187,7 @@
                     </tr>
                     <tr>
                         <td>𐰃</td>
-                        <td>і/ы (е)</td>
+                        <td>і/ы</td>
                     </tr>
                     <tr>
                         <td>𐰄</td>
@@ -223,13 +222,17 @@
                         <td>з</td>
                     </tr>
                     <tr>
+                        <td><label></label> </td>
+                        <td><label></label></td>
+                    </tr>
+                    <!-- <tr>
                         <td>𐰪</td>
                         <td>нь</td>
-                    </tr>
+                    </tr> -->
                   </tbody>
             </table>
             <div>
-            <table class="table" style="color:white; width: 200px; margin-left: 10px">
+            <table class="table" style="color:white; width: 100px; margin-left: 20px">
                 <thead>
                     <tr>
                       <th scope="col">Turkic</th>
@@ -253,10 +256,10 @@
                         <td>𐰯</td>
                         <td>ф</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>𐰕</td>
                         <td>th</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -354,8 +357,6 @@
             'ш' : "𐱁",
         }
         
-        
-
         function get_dual(letter, prev_letter, next_letter) {
             is_soft = false;
             rune = ""
@@ -1392,23 +1393,32 @@
         ];
         
         var random_word_label = document.getElementById("random_word");
-        var first_random_word = kazakh_words[Math.floor(Math.random()*kazakh_words.length)];
-        random_word_label.innerHTML = first_random_word;
-        
+
         var correct_checkmark = document.getElementById("correct_checkmark");
         var wrong_checkmark = document.getElementById("wrong_checkmark");
+        
+        $(document).ready(function(){
+            $('#wrong_checkmark').hide();
+            $('#correct_checkmark').hide();
+    
+            var first_random_word = kazakh_words[Math.floor(Math.random()*kazakh_words.length)];
+            random_word_label.innerHTML = first_random_word;
+        });
+        
         function check_answer()
         {
+            console.log("check_answer")
             var correct_answer = convert_word_to_script(random_word_label.innerHTML);
+            console.log(correct_answer)
             if(answer_input.value === correct_answer)
             {
-                correct_checkmark.style.display = "block";
-                wrong_checkmark.style.display = "none";
+                $('#correct_checkmark').show();
+                $('#wrong_checkmark').hide();
             }
             else
             {
-                wrong_checkmark.style.display = "block";
-                correct_checkmark.style.display = "none";
+                $('#correct_checkmark').hide();
+                $('#wrong_checkmark').show();
             }
         }
 
