@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style>
         .rune_button {
-          font-size: xxx-large;
-          color: 1e1e1e;
-          background-color: white;
+            font-size: xx-large;
         }
     </style>
     <title>Turkic Converter</title>
 </head>
 
-<body style="background-color: #1e1e1e; color:white; text-align: center; font-size: 16pt">
+<body style="background-color: #1e1e1e; color:white; text-align: center;">
+    <br/>
     <h1>Turkic Converter</h1>
-    <div>
-        <a style="color:beige; font-size:large; color:cornflowerblue; font-weight: bold; font-size:x-large" href="index.html">convert</a>
-        <br/>
-        <br/>
+    <div class="container">
+        <header class="d-flex justify-content-center py-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page">Convert</a></li>
+            <li class="nav-item"><a href="practice.html" class="nav-link active">Practice</a></li>
+          </ul>
+        </header>
     </div>
     <div id="practice_div">
         <br/>
@@ -25,67 +28,67 @@
         <label id="random_word" style="font-size:xxx-large;">Қазақ</label>
         <br/>
         <br/>
-        <input type="text" style="font-size:x-large;" id="answer_input"/>
+        <input type="text" style="font-size:xx-large;" id="answer_input"/>
         <div style="min-height: 50px;">
             <label id="correct_checkmark" style="font-size:30px" hidden>✅😀</label><label id="wrong_checkmark" style="font-size:30px" hidden>❌😭</label>
         </div>
         <br/>
-        <button class="rune_button" style="margin-right: 20px" onclick="check_answer()">submit</button>
-        <button class="rune_button" onclick="next_word()">next</button>
+        <button class="btn btn-dark rune_button" style="margin-right: 20px" onclick="check_answer()">submit</button>
+        <button class="btn btn-dark rune_button" onclick="next_word()">next</button>
         <br/>
         <br/>
         <br/>
         <div>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰀')">𐰀</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰂')">𐰂</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰃')">𐰃</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰄')">𐰄</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰅')">𐰅</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰆')">𐰆</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰇')">𐰇</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰢')">𐰢</button>
-            <br/>
-            <br/>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰭')">𐰭</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰯')">𐰯</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰕')">𐰕</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰪')">𐰪</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰊')">𐰊</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰳')">𐰳</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰴')">𐰴</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰆')">𐰆</button>
-            <br/>
-            <br/>
-            hard
-            <br/>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰉')">𐰉</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰑')">𐰑</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰍')">𐰍</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰲')">𐰲</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰖')">𐰖</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰣')">𐰣</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰺')">𐰺</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰽')">𐰽</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐱃')">𐱃</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰞')">𐰞</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰴')">𐰴</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰿')">𐰿</button>
-            <br/>
-            <br/>
-            soft
-            <br/>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰋')">𐰋</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰓')">𐰓</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰏')">𐰏</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰱')">𐰱</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰘')">𐰘</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰤')">𐰤</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰼')">𐰼</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰾')">𐰾</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐱅')">𐱅</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰠')">𐰠</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐰚')">𐰚</button>
-            <button class="rune_button" onclick="add_letter_to_answer('𐱁')">𐱁</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰀')">𐰀</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰂')">𐰂</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰃')">𐰃</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰄')">𐰄</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰅')">𐰅</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰆')">𐰆</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰇')">𐰇</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰢')">𐰢</button>
+            <br/> 
+            <br/> 
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰭')">𐰭</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰯')">𐰯</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰕')">𐰕</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰪')">𐰪</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰊')">𐰊</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰳')">𐰳</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰴')">𐰴</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰆')">𐰆</button>
+            <br/> 
+            <br/> 
+            hard 
+            <br/> 
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰉')">𐰉</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰑')">𐰑</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰍')">𐰍</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰲')">𐰲</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰖')">𐰖</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰣')">𐰣</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰺')">𐰺</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰽')">𐰽</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐱃')">𐱃</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰞')">𐰞</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰴')">𐰴</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰿')">𐰿</button>
+            <br/> 
+            <br/> 
+            soft 
+            <br/> 
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰋')">𐰋</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰓')">𐰓</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰏')">𐰏</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰱')">𐰱</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰘')">𐰘</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰤')">𐰤</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰼')">𐰼</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰾')">𐰾</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐱅')">𐱅</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰠')">𐰠</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰚')">𐰚</button>
+            <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐱁')">𐱁</button>
         </div>
     </div>
     <script>
