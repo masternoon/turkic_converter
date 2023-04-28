@@ -4,13 +4,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <style>
         .rune_button {
-          font-size: large;
+          font-size: 20pt;
         }
     </style>
     <title>Turkic Converter</title>
 </head>
 
-<body style="background-color: #1e1e1e; color:beige;">
+<body style="background-color: #1e1e1e; color:beige; text-align: center;">
     <h1>Turkic Converter</h1>
     <div>
         <a style="color:beige; font-size:large; color:cornflowerblue; font-weight: bold; font-size:x-large" href="index.html">convert</a>
@@ -18,16 +18,19 @@
         <br/>
     </div>
     <div id="practice_div">
-        <label id="random_word" style="font-size:x-large;">Қазақ</label>
         <br/>
         <br/>
-        <input type="text" style="font-size:large;" id="answer_input"/>
+        <label id="random_word" style="font-size:xxx-large;">Қазақ</label>
+        <br/>
+        <br/>
+        <input type="text" style="font-size:x-large;" id="answer_input"/>
         <div style="min-height: 50px;">
             <label id="correct_checkmark" style="font-size:30px" hidden>✅😀</label><label id="wrong_checkmark" style="font-size:30px" hidden>❌😭</label>
         </div>
         <br/>
-        <button onclick="check_answer()">submit</button>
-        <button onclick="next_word()">next</button>
+        <button class="rune_button" style="margin-right: 20px" onclick="check_answer()">submit</button>
+        <button class="rune_button" onclick="next_word()">next</button>
+        <br/>
         <br/>
         <br/>
         <div>
@@ -39,9 +42,9 @@
             <button class="rune_button" onclick="add_letter_to_answer('𐰆')">𐰆</button>
             <button class="rune_button" onclick="add_letter_to_answer('𐰇')">𐰇</button>
             <button class="rune_button" onclick="add_letter_to_answer('𐰢')">𐰢</button>
+            <br/>
+            <br/>
             <button class="rune_button" onclick="add_letter_to_answer('𐰭')">𐰭</button>
-            <br/>
-            <br/>
             <button class="rune_button" onclick="add_letter_to_answer('𐰯')">𐰯</button>
             <button class="rune_button" onclick="add_letter_to_answer('𐰕')">𐰕</button>
             <button class="rune_button" onclick="add_letter_to_answer('𐰪')">𐰪</button>
