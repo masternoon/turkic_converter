@@ -24,16 +24,19 @@
         <br/>
     </div>
     <div id="convert_div">
-        <textarea style="width: 80%; font-size: x-large;" id="text_to_convert" onkeyup = "auto_convert()"></textarea>
-        <br/>
+        <textarea style="width: 80%; font-size: x-large; margin-bottom: 10px;" id="text_to_convert" onkeyup = "auto_convert()"></textarea>
         <br/>
         <input type="checkbox" id="auto_convert" value="auto convert" checked>
-        <label style="font-size: x-large;" for="auto_convert">auto convert</label><br>
+        <label style="font-size: x-large;" for="auto_convert">auto convert</label>
+        &nbsp&nbsp&nbsp&nbsp&nbsp
+        <button style="font-size: x-large;" class="btn btn-dark" onclick="convert_to_script()">Convert</button>
+        
+        
+        <br>
         <p>
         <p style="unicode-bidi:bidi-override; direction: RTL; text-align: center; white-space: pre-wrap; font-size: x-large;" id="converted_text"></p>
         </p>
-        <br/>
-        <button style="font-size: x-large;" class="btn btn-dark" onclick="convert_to_script()">convert</button>
+        
         <!-- <button style="font-size: 30pt;" onclick="diphthongs()">diphthongs</button> -->
     </div>
     <label hidden>𐰴𐰀𐰕𐰀𐰴</label>
