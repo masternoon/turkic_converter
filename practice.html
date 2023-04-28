@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html data-bs-theme="dark">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style>
         .rune_button {
-            font-size: xx-large;
+            font-size: x-large;
         }
     </style>
     <title>Turkic Converter</title>
@@ -25,12 +26,12 @@
     <div id="practice_div">
         <br/>
         <br/>
-        <label id="random_word" style="font-size:xxx-large;">Қазақ</label>
+        <label id="random_word" style="font-size:xx-large;">Қазақ</label>
         <br/>
         <br/>
-        <input type="text" style="font-size:xx-large;" id="answer_input"/>
+        <input type="text" style="font-size:x-large;" id="answer_input"/>
         <div style="min-height: 50px;">
-            <label id="correct_checkmark" style="font-size:30px" hidden>✅😀</label><label id="wrong_checkmark" style="font-size:30px" hidden>❌😭</label>
+            <label id="correct_checkmark" style="font-size:x-large" hidden>✅😀</label><label id="wrong_checkmark" style="font-size:x-large" hidden>❌😭</label>
         </div>
         <br/>
         <button class="btn btn-dark rune_button" style="margin-right: 20px" onclick="check_answer()">submit</button>
@@ -89,6 +90,176 @@
             <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰠')">𐰠</button>
             <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐰚')">𐰚</button>
             <button class="btn btn-dark rune_button" onclick="add_letter_to_answer('𐱁')">𐱁</button>
+        </div>
+        <br/>
+        <br/>
+        <div>
+            <button data-target="#cheat_sheet" href="#cheat_sheet" class="btn btn-dark rune_button" data-toggle="collapse">Show Cheat Sheet</button>
+        </div>
+        <br/>
+        <br/>
+        <div id="cheat_sheet" class="row justify-content-center collapse">
+            <table class="table" style="color:white; width: 200px">
+                <thead>
+                    <tr>
+                      <th scope="col">Hard</th>
+                      <th scope="col">Letter</th>
+                      <th scope="col">Soft</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                    <tr>
+                        <td>𐰉</td>
+                        <td>б</td>
+                        <td>𐰋</td>
+                    </tr>
+                    <tr>
+                        <td>𐰑</td>
+                        <td>д</td>
+                        <td>𐰓</td>
+                    </tr>
+                    <tr>
+                        <td>𐰍</td>
+                        <td>г/ғ</td>
+                        <td>𐰏</td>
+                    </tr>
+                    <tr>
+                        <td>𐰲</td>
+                        <td>ч</td>
+                        <td>𐰱</td>
+                    </tr>
+                    <tr>
+                        <td>𐰖</td>
+                        <td>ж</td>
+                        <td>𐰘</td>
+                    </tr>
+                    <tr>
+                        <td>𐰣</td>
+                        <td>н</td>
+                        <td>𐰤</td>
+                    </tr>
+                    <tr>
+                        <td>𐰺</td>
+                        <td>р</td>
+                        <td>𐰼</td>
+                    </tr>
+                    <tr>
+                        <td>𐰽</td>
+                        <td>с</td>
+                        <td>𐰾</td>
+                    </tr>
+                    <tr>
+                        <td>𐱃</td>
+                        <td>т</td>
+                        <td>𐱅</td>
+                    </tr>
+                    <tr>
+                        <td>𐰞</td>
+                        <td>л</td>
+                        <td>𐰠</td>
+                    </tr>
+                    <tr>
+                        <td>𐰴</td>
+                        <td>қ/к</td>
+                        <td>𐰚</td>
+                    </tr>
+                    <tr>
+                        <td>𐰿</td>
+                        <td>ш</td>
+                        <td>𐱁</td>
+                    </tr>
+                  </tbody>
+            </table>
+            <table class="table" style="color:white; width: 200px; margin-left: 10px">
+                <thead>
+                    <tr>
+                      <th scope="col">Turkic</th>
+                      <th scope="col">Letter</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                    <tr>
+                        <td>𐰀</td>
+                        <td>а/ә</td>
+                    </tr>
+                    <tr>
+                        <td>𐰂</td>
+                        <td>ә</td>
+                    </tr>
+                    <tr>
+                        <td>𐰃</td>
+                        <td>і/ы (е)</td>
+                    </tr>
+                    <tr>
+                        <td>𐰄</td>
+                        <td>и</td>
+                    </tr>
+                    <tr>
+                        <td>𐰅</td>
+                        <td>е</td>
+                    </tr>
+                    <tr>
+                        <td>𐰆</td>
+                        <td>о/у/ұ</td>
+                    </tr>
+                    <tr>
+                        <td>𐰇</td>
+                        <td>ө/ү</td>
+                    </tr>
+                    <tr>
+                        <td>𐰢</td>
+                        <td>м</td>
+                    </tr>
+                    <tr>
+                        <td>𐰭</td>
+                        <td>ң</td>
+                    </tr>
+                    <tr>
+                        <td>𐰯</td>
+                        <td>п</td>
+                    </tr>
+                    <tr>
+                        <td>𐰕</td>
+                        <td>з</td>
+                    </tr>
+                    <tr>
+                        <td>𐰪</td>
+                        <td>нь</td>
+                    </tr>
+                  </tbody>
+            </table>
+            <div>
+            <table class="table" style="color:white; width: 200px; margin-left: 10px">
+                <thead>
+                    <tr>
+                      <th scope="col">Turkic</th>
+                      <th scope="col">Letter</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                    <tr>
+                        <td>𐰊</td>
+                        <td>в</td>
+                    </tr>
+                    <tr>
+                        <td>𐰳</td>
+                        <td>ц</td>
+                    </tr>
+                    <tr>
+                        <td>𐰴</td>
+                        <td>х</td>
+                    </tr>
+                    <tr>
+                        <td>𐰯</td>
+                        <td>ф</td>
+                    </tr>
+                    <tr>
+                        <td>𐰕</td>
+                        <td>th</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         </div>
     </div>
     <script>
@@ -183,8 +354,9 @@
             'ш' : "𐱁",
         }
         
-        function get_dual(letter, prev_letter, next_letter)
-        {
+        
+
+        function get_dual(letter, prev_letter, next_letter) {
             is_soft = false;
             rune = ""
             if(prev_letter)
